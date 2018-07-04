@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LimitOrderBook
 {
-    public class Class1
+    public class LimitOrder
     {
     }
 }
