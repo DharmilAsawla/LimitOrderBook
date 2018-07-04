@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace LimitOrderBook
 {
-    public class LimitOrder
+    public class LimitOrder : ILimitOrder
     {
+        public string CancelOrder(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string PlaceOrder(string id, string side, int quantity , int price)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
