@@ -22,6 +22,11 @@ namespace LimitOrderBook
             if (OrderDict.ContainsKey(id))
             {
                     OrderDict.Remove(id);
+                if (OrderBook_Buy.ContainsKey(id)) { OrderBook_Buy.Remove(id); }
+                if (OrderBook_Sell.ContainsKey(id)) { OrderBook_Sell.Remove(id); }
+
+
+
                     return "OK";
                 
             }
@@ -64,13 +69,17 @@ namespace LimitOrderBook
                                 FilledOrders.Add(id);
                                 return output;
                             }
-                            else if (new_quantity < 0)
+                            else if (new_quantity <= 0)
                             {
                                 //partially matched
                                 int remainder = Math.Abs(new_quantity);
 
 
                                 string output = "Partially matched with " + pair.Key + "(" + OrderDict[pair.Key].Quantity + "@" + pair.Value + ")";
+
+                                //remove the entry from Orderbook_buy
+                                OrderBook_Buy.Remove(pair.Key);
+                                
 
                                 OrderDict.Remove(pair.Key); //remove the buy order because no quantity
 

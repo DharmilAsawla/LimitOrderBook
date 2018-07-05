@@ -37,8 +37,6 @@ namespace LimitOrderBook_Tests
 
             Assert.AreEqual("Partially matched with BBB(6@12)", book.PlaceOrder("GGG", "Sell", 10, 12));
 
-
-            
             Assert.AreEqual("Failed - already fully filled", book.CancelOrder("BBB"));
 
 
@@ -46,7 +44,7 @@ namespace LimitOrderBook_Tests
 
 
             //struglling on this test case
-            //Assert.AreEqual("Fully matched with HHH(10@12) and AAA(10@10)", book.PlaceOrder("KKK", "Sell", 20, 12));
+            Assert.AreEqual("Fully matched with HHH(10@12) and AAA(10@10)", book.PlaceOrder("KKK", "Sell", 20, 12));
 
             Assert.AreEqual("OK", book.CancelOrder("DDD"));
             Assert.AreEqual("Failed - no such active order", book.CancelOrder("DDD"));
